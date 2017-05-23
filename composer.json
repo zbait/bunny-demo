@@ -1,0 +1,15 @@
+{
+    "name": "zbait/bunny-demo",
+    "description": "A demo for bunny.",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "zbait/bunny": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "modules"
+        }
+    }
+}

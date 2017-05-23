@@ -1,0 +1,45 @@
+swagger: '2.0'
+
+info:
+  version: "example"
+  title: Bunny User Example
+  
+host: localhost:8081
+
+paths:
+  /example/user/query:
+    get:
+      description: |
+        Get all user list with page if param id is empty.
+        
+        Get user info with id.
+      parameters:
+        -
+          name: id
+          in: query
+          description: id of user
+          required: false
+          type: string
+          format: string
+      responses:
+        200:
+          description: Successful response
+          schema:
+            title: user
+            type: array
+            items:
+              title: user
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                mail:
+                  type: string
+                tel:
+                  type: string
+                create_time:
+                  type: string
+                update_time:
+                  type: string

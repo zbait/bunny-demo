@@ -1,0 +1,10 @@
+# bunny-demo
+A demo for bunny.
+
+#+BEGIN_SRC composer
+composer require joshcam/mysqli-database-class
+composer require illuminate/database
+composer require doctrine/orm
+composer require illuminate/view
+composer require "twig/twig:^2.0"
+#+END_SRC

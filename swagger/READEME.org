@@ -1,0 +1,8 @@
+* swagger
+** swagger-ui
+   - http://swagger.io/docs/swagger-tools/#swagger-ui-documentation-29
+** swagger-editor
+   - wget https://github.com/swagger-api/swagger-editor/releases/download/v2.10.4/swagger-editor.zip
+   - unzip swagger-editor.zip
+   - http-server swagger-editor
+        
