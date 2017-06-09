@@ -1,8 +1,8 @@
 <?php
 
-namespace Example\Controller;
+namespace User;
 
-use Bunny\Http\Mvc\Controller;
+use Bunny\Framework\Http\Controller;
 use Bunny\Database\PdoDao;
 use Bunny\Database\PageUtil;
 
@@ -10,7 +10,7 @@ use Bunny\Database\PageUtil;
 use Example\Model\User;
 use Bunny\Database\LaravelDao;
 
-class UserController extends Controller{
+class IndexController extends Controller{
 
     /**
      * @var Bunny\Database\PdoDao 数据访问类
@@ -26,18 +26,18 @@ class UserController extends Controller{
 
     // ===================  PAGE  ==========================
 
-    public function indexAction(){
+    public function index(){
         $this->response->addData('name','haha');
     }
 
-    public function editAction(){}
+    public function edit(){}
 
     // ===================  API  ==========================
 
     /**
      * 保存，修改API
      */
-    public function saveAction(){
+    public function save(){
         $user = array();
         $user['id'] = $this->request->getParam('id');
         $user['username'] = $this->request->getParam('username');
@@ -55,7 +55,7 @@ class UserController extends Controller{
     /**
      * 查找API
      */
-    public function queryAction(){
+    public function query(){
         $id = $this->request->getParam('id');
         if(empty($id)){
             //分页信息
@@ -79,7 +79,7 @@ class UserController extends Controller{
     /**
      * 删除API
      */
-    public function deleteAction(){
+    public function delete(){
         $id = $this->request->getParam('id');
         $rowCount = $this->dao()->deleteById($id);
         $this->response->msg(200, 'row count is '.$rowCount);
@@ -88,7 +88,7 @@ class UserController extends Controller{
     /**
      * LaravelDao使用示例
      */
-    public function modelAction(){
+    public function model(){
         //初始化一次即可
         LaravelDao::create();
         //使用模型对象

@@ -12,15 +12,14 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 use Bunny\Http\Request;
 use Bunny\Http\Response;
-use Bunny\Http\Resolver\Resolver;
-use Bunny\Http\Render\Render;
+use Bunny\Http\Resolver;
+use Bunny\Http\Render;
 use Bunny\Http\Server;
 use Bunny\Config\Config;
 
 //全局参数配置
 Config::setGlobal(Config::PATH_ROOT, __DIR__.'/../');
 Config::setGlobal(Config::ENV, 'dev');
-//Config::setGlobal(Config::TEMPLATE, 'twig');
 
 //HTTP请求和响应
 $request = new Request();
@@ -28,10 +27,8 @@ $response = new Response();
 //$response->setHeader("Access-Control-Allow-Origin: *");
 //路由解析器
 $resolver = new Resolver(Config::getConfig('router', false));
-//默认解析器
-$resolver = new Resolver();
-//渲染器
-$render = new Render();
+//渲染器 ''|'html'|'twig' 默认为html
+$render = new Render(Config::getGlobal(Config::PATH_ROOT));
 //启动服务
 $server = new Server($request, $response, $resolver, $render);
 $server->run();

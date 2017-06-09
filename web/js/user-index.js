@@ -37,8 +37,8 @@ function View() {
     //用户操作渲染
     this.getBtnEle = function(id) {
         return $('<td>').addClass('text-center')
-            .append($('<a>').attr('href', '/example/user/edit').html('新增 | '))
-            .append($('<a>').attr('href', '/example/user/edit?id=' + id).html('修改 | '))
+            .append($('<a>').attr('href', '/user/edit').html('新增 | '))
+            .append($('<a>').attr('href', '/user/edit?id=' + id).html('修改 | '))
             .append($('<a>').attr('name', 'delete').attr('id', id).html('删除'));
     };
 
@@ -89,7 +89,7 @@ function User() {
     this.init = function() {
         //获取用户数据
         var page = self.getQueryString('page');
-        self.ajax('/example/user/query', {'page':page}, function(data) {
+        self.ajax('/user/query', {'page':page}, function(data) {
             //渲染列表数据
             var table_th_ele = $('#table-th');
             var users = data.users;
@@ -113,7 +113,7 @@ function User() {
         var data = {
             'id': $(this).attr('id')
         };
-        self.ajax('/example/user/delete', data, function(data) {
+        self.ajax('/user/delete', data, function(data) {
             if(data.code == 200){
                 self.home();
             }else{

@@ -16,7 +16,7 @@ function User() {
         if(!self.id){
             return;
         }
-        self.ajax('/example/user/query', {'id': self.id}, function(data){
+        self.ajax('/user/query', {'id': self.id}, function(data){
             console.log(data);
             $('#username').val(data.user.username);
             $('#password').val(data.user.password);
@@ -34,7 +34,7 @@ function User() {
             'mail': $('#mail').val(),
             'tel': $('#tel').val()
         };
-        self.ajax('/example/user/save', data, function(data) {
+        self.ajax('/user/save', data, function(data) {
             if(data.code == 200){
                 console.log('保存成功,ID is ' + data.data);
                 self.home();

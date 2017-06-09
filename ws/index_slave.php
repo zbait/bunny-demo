@@ -11,7 +11,6 @@ use Bunny\Provider\Swoole\WebSocketServer;
 error_reporting(E_ALL);
 
 //全局参数配置
-Config::setGlobal(Config::PATH_ROOT, __DIR__.'/../');
 Config::setGlobal(Config::ENV, 'slave');
 
 //启动WebSocketServer

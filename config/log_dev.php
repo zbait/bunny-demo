@@ -9,7 +9,7 @@ return array(
     'debug' => true,
     'driver' => 'file', // file|gearman
     'file' => array(
-        'rootPath' => __DIR__.'/../var/logs',
+        'fileName' => 'class',
     ),
     'gearman' => array(
         'workerName' => 'Service::Log::asyncLog',
